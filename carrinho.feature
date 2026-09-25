@@ -1,59 +1,44 @@
-# language: pt
+Funcionalidade: Configuração de produto
 
-Funcionalidade: Gerenciamento do carrinho de compras
-
-  Como cliente da EBAC-SHOP
-  Quero adicionar produtos no carrinho
-  Para realizar a compra dos itens
+  História de usuário:
+    Como cliente da EBAC-SHOP
+    Quero configurar meu produto de acordo com meu tamanho e gosto
+    E escolher a quantidade
+    Para depois inserir no carrinho
 
   Contexto:
-    Dado que estou na página de produtos da EBAC-SHOP
+    Dado que o cliente esteja na página de configuração do produto
 
-  Cenário: Adicionar produtos ao carrinho
-    Quando adiciono 1 produto ao carrinho
-    Então o produto deve ser exibido no carrinho
+  Cenário: Configurar produto com cor, tamanho e quantidade
+    Quando o cliente selecionar uma cor
+    E selecionar um tamanho
+    E informar a quantidade desejada
+    E clicar no botão de adicionar ao carrinho
+    Então o produto deve ser adicionado ao carrinho
 
-  Cenário: Adicionar até 5 produtos ao carrinho
-    Quando adiciono 5 produtos diferentes ao carrinho
-    Então os 5 produtos devem ser exibidos no carrinho
+  Cenário: Tentar adicionar produto sem selecionar cor, tamanho ou quantidade
+    Quando o cliente não selecionar um dos campos obrigatórios
+    E clicar no botão de adicionar ao carrinho
+    Então deve ser exibida uma mensagem informando que os campos obrigatórios devem ser preenchidos
 
-  Cenário: Tentar adicionar mais de 5 produtos ao carrinho
-    Dado que já existem 5 produtos no carrinho
-    Quando tento adicionar outro produto
-    Então o sistema não deve permitir adicionar mais produtos
-
-  Cenário: Remover um produto do carrinho
-    Dado que existe um produto no carrinho
-    Quando removo o produto do carrinho
-    Então o produto não deve mais ser exibido no carrinho
-
-  Cenário: Aplicar cupom de desconto
-    Dado que existe um produto no carrinho
-    Quando informo um cupom de desconto válido
-    E aplico o cupom
-    Então o desconto deve ser aplicado ao valor da compra
-
-  Cenário: Visualizar informações do produto no carrinho
-    Dado que existe um produto no carrinho
-    Quando acesso o carrinho
-    Então devo visualizar o tamanho do produto
-    E devo visualizar a cor do produto
-    E devo visualizar a descrição do produto
-
-  Cenário: Concluir a compra
-    Dado que existe um produto no carrinho
-    Quando seleciono a opção de concluir a compra
-    Então devo ser direcionado para a etapa de finalização da compra
-
-  Esquema do Cenário: Aplicar diferentes cupons de desconto
-    Dado que existe um produto no carrinho
-    Quando informo o cupom <cupom>
-    E aplico o cupom
-    Então o sistema deve apresentar o resultado <resultado>
+  Esquema do Cenário: Limite de quantidade de produtos por venda
+    Quando o cliente selecionar uma cor
+    E selecionar um tamanho
+    E informar a quantidade <quantidade>
+    E clicar no botão de adicionar ao carrinho
+    Então o sistema deve permitir a compra somente quando a quantidade for igual ou inferior a 10
 
     Exemplos:
-      | cupom       | resultado                    |
-      | DESCONTO10  | desconto aplicado            |
-      | DESCONTO20  | desconto aplicado            |
-      | CUPOMINVALIDO | cupom inválido             |
+      | quantidade |
+      | 1          |
+      | 5          |
+      | 10         |
+      | 11         |
+
+  Cenário: Limpar configuração do produto
+    Quando o cliente selecionar uma cor
+    E selecionar um tamanho
+    E informar uma quantidade
+    E clicar no botão "limpar"
+    Então os campos devem voltar ao estado original
 

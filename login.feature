@@ -1,51 +1,31 @@
-# language: pt
+Funcionalidade: Login de cliente
 
-Funcionalidade: Login na plataforma EBAC-SHOP
-
-  Como cliente da EBAC-SHOP
-  Quero fazer o login (autenticação) na plataforma
-  Para visualizar meus pedidos
+  História de usuário:
+    Como cliente da EBAC-SHOP
+    Quero fazer o login (autenticação) na plataforma
+    Para visualizar meus pedidos
 
   Contexto:
-    Dado que estou na página de login da EBAC-SHOP
+    Dado que o cliente esteja na tela de login da EBAC-SHOP
 
-  Cenário: Realizar login com credenciais válidas
-    Quando informo um usuário válido
-    E informo uma senha válida
-    E clico no botão de login
-    Então devo acessar minha conta
+  Cenário: Login realizado com dados válidos
+    Quando o cliente informar um usuário válido
+    E informar uma senha válida
+    E clicar no botão de login
+    Então deve ser direcionado para a tela de checkout
 
-  Cenário: Impedir login com credenciais inválidas
-    Quando informo um usuário ou senha incorretos
-    E clico no botão de login
-    Então o sistema não deve permitir o acesso à conta
-    E deve apresentar uma mensagem de erro
+  Cenário: Login com usuário ou senha inválidos
+    Quando o cliente informar um usuário ou senha inválidos
+    E clicar no botão de login
+    Então deve ser exibida a mensagem de alerta "Usuário ou senha inválidos"
 
-  Cenário: Alterar senha esquecida
-    Dado que esqueci minha senha atual
-    Quando solicito a alteração da senha
-    Então devo receber as instruções para alterar minha senha
-
-  Cenário: Lembrar usuário para futuros logins
-    Quando informo um usuário válido
-    E seleciono a opção para lembrar o usuário
-    E realizo o login
-    Então o usuário deve ser lembrado para futuros logins
-
-  Cenário: Visualizar pedidos após realizar login
-    Dado que possuo pedidos cadastrados
-    Quando realizo o login com credenciais válidas
-    Então devo conseguir visualizar meus pedidos
-
-  Esquema do Cenário: Validar diferentes combinações de login
-    Quando informo o usuário <usuario>
-    E informo a senha <senha>
-    E clico no botão de login
-    Então o resultado do login deve ser <resultado>
+      Esquema do Cenário: Login com dados inválidos
+    Quando o cliente informar o usuário <usuario>
+    E informar a senha <senha>
+    E clicar no botão de login
+    Então deve ser exibida a mensagem de alerta "Usuário ou senha inválidos"
 
     Exemplos:
-      | usuario          | senha          | resultado                  |
-      | usuario_valido   | senha_valida   | acesso permitido           |
-      | usuario_invalido | senha_valida   | acesso negado              |
-      | usuario_valido   | senha_invalida | acesso negado              |
-      | usuario_invalido | senha_invalida | acesso negado              |
+      | usuario       | senha          |
+      | usuarioerrado | senha123       |
+      | usuario       | senhaerrada    |
