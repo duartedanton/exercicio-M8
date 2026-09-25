@@ -2,10 +2,9 @@
 
 Funcionalidade: Login na plataforma EBAC-SHOP
 
-  # História de usuário:
-  # Como cliente da EBAC-SHOP
-  # Quero fazer o login (autenticação) na plataforma
-  # Para visualizar meus pedidos
+  Como cliente da EBAC-SHOP
+  Quero fazer o login (autenticação) na plataforma
+  Para visualizar meus pedidos
 
   Contexto:
     Dado que estou na página de login da EBAC-SHOP
@@ -39,10 +38,10 @@ Funcionalidade: Login na plataforma EBAC-SHOP
     Então devo conseguir visualizar meus pedidos
 
   Esquema do Cenário: Validar diferentes combinações de login
-    Quando informo o usuário "<usuario>"
-    E informo a senha "<senha>"
+    Quando informo o usuário <usuario>
+    E informo a senha <senha>
     E clico no botão de login
-    Então o resultado do login deve ser "<resultado>"
+    Então o resultado do login deve ser <resultado>
 
     Exemplos:
       | usuario          | senha          | resultado                  |

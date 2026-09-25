@@ -2,10 +2,9 @@
 
 Funcionalidade: Gerenciamento do carrinho de compras
 
-  # História de usuário:
-  # Como cliente da EBAC-SHOP
-  # Quero adicionar produtos no carrinho
-  # Para realizar a compra dos itens
+  Como cliente da EBAC-SHOP
+  Quero adicionar produtos no carrinho
+  Para realizar a compra dos itens
 
   Contexto:
     Dado que estou na página de produtos da EBAC-SHOP
@@ -48,13 +47,13 @@ Funcionalidade: Gerenciamento do carrinho de compras
 
   Esquema do Cenário: Aplicar diferentes cupons de desconto
     Dado que existe um produto no carrinho
-    Quando informo o cupom "<cupom>"
+    Quando informo o cupom <cupom>
     E aplico o cupom
-    Então o sistema deve apresentar o resultado "<resultado>"
+    Então o sistema deve apresentar o resultado <resultado>
 
     Exemplos:
       | cupom       | resultado                    |
       | DESCONTO10  | desconto aplicado            |
       | DESCONTO20  | desconto aplicado            |
-      | CUPOMINVALIDO | cupom inválido              |
+      | CUPOMINVALIDO | cupom inválido             |
 

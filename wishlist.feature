@@ -2,10 +2,9 @@
 
 Funcionalidade: Lista de desejos da EBAC-SHOP
 
-  # História de usuário:
-  # Como cliente da EBAC-SHOP
-  # Quero favoritar os itens que eu gosto
-  # Para efetuar a compra futuramente
+  Como cliente da EBAC-SHOP
+  Quero favoritar os itens que eu gosto
+  Para efetuar a compra futuramente
 
   Contexto:
     Dado que estou na página de produtos da EBAC-SHOP
@@ -38,8 +37,8 @@ Funcionalidade: Lista de desejos da EBAC-SHOP
     Então o sistema não deve permitir adicionar o produto ao carrinho
 
   Esquema do Cenário: Favoritar diferentes produtos
-    Quando clico no ícone de favorito do produto "<produto>"
-    Então o produto "<produto>" deve ser adicionado à lista de desejos
+    Quando clico no ícone de favorito do produto <produto>
+    Então o produto <produto> deve ser adicionado à lista de desejos
 
     Exemplos:
       | produto              |
